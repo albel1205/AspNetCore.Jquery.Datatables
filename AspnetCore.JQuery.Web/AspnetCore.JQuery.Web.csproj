@@ -22,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\JQuery.Datatables.AspNetCore\JQuery.Datatables.AspNetCore.csproj" />
     <ProjectReference Include="..\JQuery.Datatables.Core\JQuery.Datatables.Core.csproj" />
-    <ProjectReference Include="..\JQuery.Datatables\JQuery.Datatables.csproj" />
   </ItemGroup>
 
 </Project>

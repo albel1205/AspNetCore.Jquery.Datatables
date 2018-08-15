@@ -13,6 +13,7 @@ namespace AspnetCore.JQuery.Web.Controllers
         {
             var getDataUrl = Url.Action(nameof(DataTableController.GetSampleEntities));
             var vm = DataTablesHelper.DataTableVm<SampleEntity>("testTable", getDataUrl);
+            vm.Filter = true;
 
             return View(vm);
         }
