@@ -26,6 +26,7 @@ namespace AspnetCore.JQuery.Web.Domain
 
         private FakeDatabase()
         {
+            this.Entities = new List<SampleEntity>();
             for(int i = 0; i< 10; i++)
             {
                 this.Entities.Add(new SampleEntity().RandomizeInstance());
