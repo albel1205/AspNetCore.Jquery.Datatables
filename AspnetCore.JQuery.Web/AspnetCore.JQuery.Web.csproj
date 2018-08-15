@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>AspnetCore.JQuery.Web</AssemblyName>
+    <RootNamespace>AspnetCore.JQuery.Web</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Shared\DataTable.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Shared\DataTable.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JQuery.Datatables.AspNetCore\JQuery.Datatables.AspNetCore.csproj" />
+    <ProjectReference Include="..\JQuery.Datatables.Core\JQuery.Datatables.Core.csproj" />
+    <ProjectReference Include="..\JQuery.Datatables\JQuery.Datatables.csproj" />
+  </ItemGroup>
+
+</Project>
