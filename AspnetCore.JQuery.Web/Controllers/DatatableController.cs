@@ -14,7 +14,7 @@ namespace AspnetCore.JQuery.Web.Controllers
         public virtual IActionResult Index()
         {
             var vm = ConfigureDataTable();
-            return View(vm);
+            return View("CPSTable", vm);
         }
 
         protected virtual DataTableConfigVm ConfigureDataTable()
@@ -27,6 +27,7 @@ namespace AspnetCore.JQuery.Web.Controllers
 
             vm.TableTools = false;
 
+            vm.LengthMenu = LengthMenuVm.Default();
             vm.PageLength = 10;
 
             vm.ColVis = false;

@@ -21,7 +21,8 @@ namespace AspnetCore.JQuery.Web.Controllers
         {
             return new
             {
-                Id = string.Format("<a href='{0}'>Edit</a>", Url.Action(nameof(this.GetTableData)))
+                Id = string.Format("<a href='{0}'>Edit</a>", model.Id),
+                IsDirty = string.Format("<input type='checkbox' {0}/>", model.IsDirty ? "checked" : "")
             };
         }
     }

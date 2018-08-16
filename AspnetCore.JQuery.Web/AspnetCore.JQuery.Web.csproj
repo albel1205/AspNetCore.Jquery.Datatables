@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Shared\DataTable.cshtml" />
+    <Content Remove="Views\Shared\_DataTable.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Shared\DataTable.cshtml" />
+    <None Include="Views\Shared\_DataTable.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
