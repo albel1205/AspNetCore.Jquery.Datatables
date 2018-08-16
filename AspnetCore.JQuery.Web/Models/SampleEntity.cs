@@ -1,4 +1,6 @@
 ﻿using AspnetCore.JQuery.Web.Helpers;
+using JQuery.Datatables.Core;
+using JQuery.Datatables.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace AspnetCore.JQuery.Datatables.Models
 
         public bool IsDirty { get; set; }
 
+        [DataTables(SortDirection = SortDirection.Ascending, Width = "70px")]
         public int Count { get; set; }
 
         public DateTime CreationDate { get; set; }
