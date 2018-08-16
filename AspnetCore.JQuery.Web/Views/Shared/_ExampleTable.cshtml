@@ -2,13 +2,12 @@
 @model DataTableConfigVm
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.0/css/jquery.dataTables.css" />
 <link rel="stylesheet" href="//cdn.datatables.net/tabletools/2.2.1/css/dataTables.tableTools.css" />
-<link rel="stylesheet" href="/Content/jquery_datatables_column_filter/jquery-ui-timepicker-addon.css" />
-<link rel="stylesheet" href="/Content/jquery_datatables_column_filter/media/js/jquery.dataTables.columnFilter.css" />
+<link rel="stylesheet" href="@Url.Content("~/lib/jquery-ui-timepicker-addon/jquery-ui-timepicker-addon.css")" />
+<link rel="stylesheet" href="@Url.Content("~/lib/jquery.dataTables.columnFilter/jquery.dataTables.columnFilter.css")" />
 <link rel="stylesheet" href="//cdn.datatables.net/colvis/1.1.1/css/dataTables.colVis.css" />
 
 @{
 
-    //var vm = Html.DataTableVm("table-id", (HomeController h) => h.GetUsers(null));
     var vm = Model;
 
 }

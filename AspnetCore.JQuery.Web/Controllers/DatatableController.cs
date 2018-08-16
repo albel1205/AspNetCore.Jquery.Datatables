@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using AspnetCore.JQuery.Datatables.Models;
 using AspnetCore.JQuery.Web.Domain;
 using JQuery.Datatables.AspNetCore;
@@ -7,21 +8,48 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AspnetCore.JQuery.Web.Controllers
 {
-    public class DataTableController : Controller
+    public abstract class DataTableController<T> : Controller 
+        where T : class
     {
-        public IActionResult Index()
+        public virtual IActionResult Index()
         {
-            var getDataUrl = Url.Action(nameof(DataTableController.GetSampleEntities));
-            var vm = DataTablesHelper.DataTableVm<SampleEntity>("testTable", getDataUrl);
-            vm.Filter = true;
-
+            var vm = ConfigureDataTable();
             return View(vm);
         }
 
-        public DataTablesResult<SampleEntity> GetSampleEntities(DataTablesParam dtTableParam)
+        protected virtual DataTableConfigVm ConfigureDataTable()
         {
-            var entities = FakeDatabase.Instance.Entities.AsQueryable();
-            return DataTablesResult.Create(entities, dtTableParam);
+            var getDataUrl = Url.Action(nameof(this.GetTableData));
+            var vm = DataTablesHelper.DataTableVm<T>(BuildTableID(), getDataUrl);
+
+            vm.Filter = true;
+            vm.ShowFilterInput = true;
+
+            vm.TableTools = false;
+
+            vm.PageLength = 10;
+
+            vm.ColVis = false;
+
+            return vm;
         }
+
+        protected virtual string BuildTableID()
+        {
+            return nameof(this.Index);
+        }
+
+        public virtual DataTablesResult<T> GetTableData(DataTablesParam dtTableParam)
+        {
+            var data = DoQueryTableData();
+            return DataTablesResult.Create(data, dtTableParam, this.TransformColumns);
+        }
+
+        protected virtual object TransformColumns(T model)
+        {
+            return model;
+        }
+
+        protected abstract IQueryable<T> DoQueryTableData();
     }
 }
